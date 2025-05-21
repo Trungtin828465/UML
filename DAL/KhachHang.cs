@@ -142,7 +142,7 @@ namespace DAL
                                   ,[Phone]
                                   ,[Gender]
                                   ,[Address]
-                           FROM [WatchStore].[dbo].[Customer]
+                           FROM [WatchStoreC#].[dbo].[Customer]
                            Where check_Remove = 1 and CustomerID = " + id;
             DataTable dt = DataProvider.GetTable(sql);
             return dt;

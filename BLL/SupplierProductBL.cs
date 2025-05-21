@@ -45,9 +45,9 @@ namespace BLL
 
 
         // Thêm sản phẩm vào bảng Product
-        public bool AddProduct(string productName, int supplierID, decimal price, DateTime createdAt, int stockQuantity, string imageFileName, int BrandID, int CategoryID)
+        public bool AddProduct(string productName, int supplierID, decimal price, DateTime createdAt, int stockQuantity, string imageFileName)
         {
-            return SupplierProductDL.AddProduct(productName, supplierID, price, createdAt, stockQuantity, imageFileName, BrandID, CategoryID) >= 0;
+            return SupplierProductDL.AddProduct(productName, supplierID, price, createdAt, stockQuantity, imageFileName) >= 0;
         }
         public bool UpdateProductStatus(int productId, int newStatus)
         {
@@ -83,9 +83,9 @@ namespace BLL
             return SupplierProductDL.AddSupplier(ContactName, Phone, Email, Address);
         }
         // find 
-        public bool AddSupplierProduct(int supplierID, string productName, decimal price, int status, int quantity, string img, int categoryID, int brandID)
+        public bool AddSupplierProduct(int supplierID, string productName, decimal price, int status, int quantity, string img)
         {
-            return SupplierProductDL.GetInstance.AddSupplierProduct(supplierID, productName, price, status, quantity, img, categoryID, brandID) > 0;
+            return SupplierProductDL.GetInstance.AddSupplierProduct(supplierID, productName, price, status, quantity, img) > 0;
         }
 
 

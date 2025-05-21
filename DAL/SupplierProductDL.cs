@@ -93,7 +93,7 @@ namespace DAL
         #endregion
 
 
-        public int AddProduct(string productName, int supplierID, decimal price, DateTime createdAt, int stockQuantity, string imageFileName, int brandID, int categoryID)
+        public int AddProduct(string productName, int supplierID, decimal price, DateTime createdAt, int stockQuantity, string imageFileName)
         {
             try
             {
@@ -102,7 +102,7 @@ namespace DAL
                 SELECT COUNT(*) 
                 FROM Product 
                 WHERE ProductName = @ProductName AND SupplierID = @SupplierID 
-                  AND CategoryID = @CategoryID AND BrandID = @BrandID";
+               ";
 
                 // SQL cập nhật sản phẩm nếu đã tồn tại
                 string sqlUpdate = @"
@@ -114,12 +114,12 @@ namespace DAL
                     Profit=0
 
                 WHERE ProductName = @ProductName AND SupplierID = @SupplierID 
-                  AND CategoryID = @CategoryID AND BrandID = @BrandID";
+                ";
 
                 // SQL thêm mới sản phẩm
                 string sqlInsert = @"
-                INSERT INTO Product (ProductName, SupplierID, ImportPrice, CreatedAt, StockQuantity, ImageUrl, BrandID, CategoryID) 
-                VALUES (@ProductName, @SupplierID, @ImportPrice, @CreatedAt, @StockQuantity, @Img, @BrandID, @CategoryID)";
+                INSERT INTO Product (ProductName, SupplierID, ImportPrice, CreatedAt, StockQuantity, ImageUrl) 
+                VALUES (@ProductName, @SupplierID, @ImportPrice, @CreatedAt, @StockQuantity, @Img)";
 
                 // Tạo mảng tham số dùng chung
                 SqlParameter[] parameters = new SqlParameter[]
@@ -129,9 +129,9 @@ namespace DAL
             new SqlParameter("@ImportPrice", SqlDbType.Decimal) { Value = price },
             new SqlParameter("@CreatedAt", SqlDbType.DateTime) { Value = createdAt },
             new SqlParameter("@StockQuantity", SqlDbType.Int) { Value = stockQuantity },
-            new SqlParameter("@Img", SqlDbType.NVarChar) { Value = imageFileName },
-            new SqlParameter("@BrandID", SqlDbType.Int) { Value = brandID },
-            new SqlParameter("@CategoryID", SqlDbType.Int) { Value = categoryID }
+            new SqlParameter("@Img", SqlDbType.NVarChar) { Value = imageFileName }
+            //new SqlParameter("@BrandID", SqlDbType.Int) { Value = brandID },
+            //new SqlParameter("@CategoryID", SqlDbType.Int) { Value = categoryID }
                 };
 
                 // Kiểm tra sản phẩm đã tồn tại chưa
@@ -369,7 +369,7 @@ namespace DAL
                     new SqlParameter("@Phone", SqlDbType.NVarChar, 20) { Value = Phone },
                     new SqlParameter("@Email", SqlDbType.NVarChar, 100) { Value = Email },
                     new SqlParameter("@Address", SqlDbType.NVarChar, 255) { Value = Address },
-                    new SqlParameter("@CreatedAt", SqlDbType.DateTime) { Value = currentDate }
+                    new SqlParameter("@CreatedAt",  SqlDbType.DateTime) { Value = currentDate }
                 };
 
                 int result = DataProvider.JustExcuteWithParameter(sql, parameters);
@@ -385,7 +385,7 @@ namespace DAL
             }
         }
         // find
-        public int AddSupplierProduct(int supplierID, string productName, decimal price, int status, int quantity, string img, int categoryID, int brandID)
+        public int AddSupplierProduct(int supplierID, string productName, decimal price, int status, int quantity, string img)
         {
             try
             {
@@ -396,18 +396,16 @@ namespace DAL
             Price,
             Status,
             Quantity,
-            Img,
-            CategoryID,
-            BrandID
+            Img
+            
         ) VALUES (
             @SupplierID,
             @ProductName,
             @Price,
             @Status,
             @Quantity,
-            @Img,
-            @CategoryID,
-            @BrandID
+            @Img
+          
         )";
 
                 SqlParameter[] parameters = new SqlParameter[]
@@ -418,8 +416,7 @@ namespace DAL
             new SqlParameter("@Status", SqlDbType.Int) { Value = status },
             new SqlParameter("@Quantity", SqlDbType.Int) { Value = quantity },
             new SqlParameter("@Img", SqlDbType.NVarChar) { Value = img ?? (object)DBNull.Value },
-            new SqlParameter("@CategoryID", SqlDbType.Int) { Value = categoryID },
-            new SqlParameter("@BrandID", SqlDbType.Int) { Value = brandID }
+         
                 };
 
                 Console.WriteLine("Executing SQL with parameters:");

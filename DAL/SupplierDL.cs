@@ -43,7 +43,7 @@ namespace DAL
                             ,[Email]
                             ,[Address]
                             ,[CreatedAt]
-                        FROM [WatchStore].[dbo].[Supplier] WHERE [NGUNGHOPTAC]=1 ";
+                        FROM [WatchStoreC#].[dbo].[Supplier] WHERE [NGUNGHOPTAC]=1 ";
 
                 DataTable dt = new DataTable();
                 dt = DataProvider.GetTable(sql);

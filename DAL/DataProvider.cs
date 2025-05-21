@@ -15,7 +15,7 @@ namespace DAL
 
         public static SqlConnection Openconnect()
         {
-            string connectionString = @"Data Source=DESKTOP-FA34S7I\SQLEXPRESS;Initial Catalog=WatchStore;Integrated Security=True;TrustServerCertificate=True";
+            string connectionString = @"Data Source=LAPTOP-BJKTHL97\SQLEXPRESS;Initial Catalog=WatchStoreC#;Integrated Security=True;TrustServerCertificate=True";
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
             return con;
@@ -27,7 +27,7 @@ namespace DAL
 
         public static string getConnectionString()
         {
-            return @"Server=LAPTOP-4TC8L8F1;Database=data;Trusted_Connection=True;TrustServerCertificate=true;";
+            return @"Data Source=LAPTOP-BJKTHL97\SQLEXPRESS;Initial Catalog=WatchStoreC#;Integrated Security=True;TrustServerCertificate=True";
         }
 
         public static int JustExcuteNoParameter(string sql)
@@ -50,7 +50,7 @@ namespace DAL
         // này
         public static int JustExcuteWithParameter(string sql, params SqlParameter[] parameters)
         {
-            string connectionString = @"Data Source=DESKTOP-FA34S7I\SQLEXPRESS;Initial Catalog=WatchStore;Integrated Security=True;TrustServerCertificate=True";
+            string connectionString = @"Data Source=LAPTOP-BJKTHL97\SQLEXPRESS;Initial Catalog=WatchStoreC#;Integrated Security=True;TrustServerCertificate=True";
 
             try
             {
@@ -92,7 +92,7 @@ namespace DAL
         // này
         public static DataTable GetTableWithParameters(string sql, SqlParameter[] parameters)
         {
-            string connectionString = @"Data Source=DESKTOP-FA34S7I\SQLEXPRESS;Initial Catalog=WatchStore;Integrated Security=True;TrustServerCertificate=True";
+            string connectionString = @"Data Source=LAPTOP-BJKTHL97\SQLEXPRESS;Initial Catalog=WatchStoreC#;Integrated Security=True;TrustServerCertificate=True";
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -146,7 +146,7 @@ namespace DAL
                 throw new ArgumentException("Câu lệnh SQL không được để trống.", nameof(sql));
             }
 
-            string connectionString = @"Data Source=DESKTOP-FA34S7I\SQLEXPRESS;Initial Catalog=WatchStore;Integrated Security=True;TrustServerCertificate=True";
+            string connectionString = @"Data Source=LAPTOP-BJKTHL97\SQLEXPRESS;Initial Catalog=WatchStoreC#;Integrated Security=True;TrustServerCertificate=True";
 
             try
             {

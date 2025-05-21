@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BLL</RootNamespace>
     <AssemblyName>BLL</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -86,6 +87,7 @@
   <ItemGroup>
     <Compile Include="BrandBL.cs" />
     <Compile Include="CategoryBL.cs" />
+    <Compile Include="CuuSinhVienBL.cs" />
     <Compile Include="KhachHangBL.cs" />
     <Compile Include="NhanvienBL.cs" />
     <Compile Include="ProductBL.cs" />
@@ -93,6 +95,7 @@
     <Compile Include="ReportBL.cs" />
     <Compile Include="SanPhamBL.cs" />
     <Compile Include="SignupBL.cs" />
+    <Compile Include="SuKienThamGiaBL.cs" />
     <Compile Include="SupplierBL.cs" />
     <Compile Include="SupplierProductBL.cs" />
     <Compile Include="TrangChuBL.cs" />

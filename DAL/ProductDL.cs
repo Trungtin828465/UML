@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
+
     public class ProductDL
     {
         private static ProductDL Instance;

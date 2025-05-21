@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 
 namespace DataAccessLayer
 {
+
     public class TrangChuDL
     {
         private static TrangChuDL Instance;

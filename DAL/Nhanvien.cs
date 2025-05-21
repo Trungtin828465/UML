@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 namespace DAL
 {
+
     public class Nhanvien
     {
         private static Nhanvien Instance;
@@ -34,8 +35,8 @@ namespace DAL
                       ,[Role]
                       ,[CreatedAt]
                       ,[Phone]
-                      ,[Gender]
-                  FROM [Admin] where check_Remove = 1";
+                      ,[Gender],[Luong]
+                  FROM [Admin] where check_Remove = 1 and Role != N'Quản trị viên' ";
 
                 DataTable dt = DataProvider.GetTable(sql);
                 return dt;

@@ -9,11 +9,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DAL</RootNamespace>
     <AssemblyName>DAL</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -100,6 +101,7 @@
   <ItemGroup>
     <Compile Include="BrandDL.cs" />
     <Compile Include="CategoryDL.cs" />
+    <Compile Include="CuuSinhVienDL.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="KhachHang.cs" />
     <Compile Include="Nhanvien.cs" />
@@ -108,6 +110,7 @@
     <Compile Include="ReportDL.cs" />
     <Compile Include="SanPhamDL.cs" />
     <Compile Include="SignupDL.cs" />
+    <Compile Include="SuKienThamGiaDL.cs" />
     <Compile Include="SupplierDL.cs" />
     <Compile Include="SupplierProductDL.cs" />
     <Compile Include="TrangChuDL.cs" />

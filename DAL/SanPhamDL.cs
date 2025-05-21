@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 namespace DAL
 {
+
     public class SanPhamDL
     {
         private static SanPhamDL Instance;
@@ -39,7 +40,7 @@ namespace DAL
                   [ImageUrl], [SupplierID], [CreatedAt], [CreatedBy], 
                   [Discount], [Check_Remove], [AverageRating], 
                   [ImportPrice], [Profit], [ProfitMargin]              
-                FROM [WatchStore].[dbo].[Product]
+                FROM [WatchStoreC#].[dbo].[Product]
                 WHERE Check_Remove = 1";
 
                 DataTable dt = new DataTable();
@@ -86,7 +87,7 @@ namespace DAL
             try
             {
                 string sql = @"
-            UPDATE [WatchStore].[dbo].[Product]
+            UPDATE [WatchStoreC#].[dbo].[Product]
             SET 
                 [ProductName] = @ProductName,
                 [BrandID] = @BrandID,
@@ -255,7 +256,7 @@ namespace DAL
                                           [ImageUrl], [SupplierID], [CreatedAt], [CreatedBy], 
                                           [Discount], [Check_Remove], [AverageRating], 
                                           [ImportPrice], [Profit], [ProfitMargin]              
-                                        FROM [WatchStore].[dbo].[Product]
+                                        FROM [WatchStoreC#].[dbo].[Product]
                                         WHERE Check_Remove = 1";
 
 

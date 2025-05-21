@@ -29,7 +29,7 @@ namespace DAL
         {
             try
             {
-                string sql = "SELECT [CategoryID],[CategoryName]  FROM [WatchStore].[dbo].[Category] WHERE [NGUNGHOPTAC]=1 ";
+                string sql = "SELECT [CategoryID],[CategoryName]  FROM [WatchStoreC#].[dbo].[Category] WHERE [NGUNGHOPTAC]=1 ";
                 DataTable dt = new DataTable();
                 dt = DataProvider.GetTable(sql);
                 return dt;

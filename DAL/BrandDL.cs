@@ -29,7 +29,7 @@ namespace DAL
         {
             try
             {
-                string sql = "SELECT [BrandID]\r\n,[BrandName]\r\n,[ImgBrand]\r\nFROM [WatchStore].[dbo].[Brand]";
+                string sql = "SELECT [BrandID]\r\n,[BrandName]\r\n,[ImgBrand]\r\nFROM [WatchStoreC#].[dbo].[Brand]";
                 DataTable dt = new DataTable();
                 dt = DataProvider.GetTable(sql);
                 return dt;

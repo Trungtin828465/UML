@@ -27,7 +27,7 @@ namespace DAL
         }
         private SignupDL() { }
 
-        private string connectionString = @"Data Source=DESKTOP-FA34S7I\SQLEXPRESS;Initial Catalog=WatchStore;Integrated Security=True;TrustServerCertificate=True";
+        private string connectionString = @"Data Source=LAPTOP-BJKTHL97\SQLEXPRESS;Initial Catalog=WatchStoreC#;Integrated Security=True;TrustServerCertificate=True";
 
         // Kiểm tra đăng nhập
         public bool CheckLogin(string username, string password)
@@ -137,7 +137,7 @@ namespace DAL
                               ,[Phone]
                               ,[Gender]
                               ,[check_Remove]
-                          FROM [WatchStore].[dbo].[Admin]";
+                          FROM [WatchStoreC#].[dbo].[Admin]";
 
                 DataTable dt = new DataTable();
                 dt = DataProvider.GetTable(sql);

@@ -61,5 +61,28 @@ namespace BLL
         {
             return ReportDL.GetInstance.GetBrandAll();
         }
+        /////////////////////////////
+        ///
+        public DataTable GetSLSK2023()
+        {
+            return ReportDL.GetInstance.GetSLSK2023();
+        }
+        public DataTable GetSLSK2024()
+        {
+            return ReportDL.GetInstance.GetSLSK2024();
+        }
+        public DataTable GetTopViecLam()
+        {
+            return ReportDL.GetInstance.GetTopViecLam();
+        }
+        public DataTable GetTopThamGiaSuKien()
+        {
+            return ReportDL.GetInstance.GetTopThamGiaSuKien();
+        }
+        public DataTable GetDSSuKien()
+        {
+            return ReportDL.GetInstance.GetDSSuKien();
+        }
+
     }
 }

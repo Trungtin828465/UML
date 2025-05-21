@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
+
     public class ReportDL
     {
         private static ReportDL Instance;
@@ -290,6 +291,157 @@ namespace DAL
                 return null;
             }
         }
+        /////
+        ///
+        public DataTable GetSLSK2024()
+        {
+            try
+            {
+                string sql = @" 
+                SELECT
+                    MONTH(ThoiGian) AS Thang,
+                    COUNT(ID) AS SoLuongSuKien
+                FROM
+                    SuKienThamGia
+                WHERE
+                    YEAR(ThoiGian) = 2024
+                GROUP BY
+                    MONTH(ThoiGian)
+                ORDER BY
+                    Thang;
+                    ";
 
+                DataTable dt = new DataTable();
+                dt = DataProvider.GetTable(sql);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lấy dữ liệu: " + ex.Message);
+                return null;
+            }
+
+        }
+        public DataTable GetSLSK2023()
+        {
+            try
+            {
+                string sql = @" 
+                SELECT
+                    MONTH(ThoiGian) AS Thang,
+                    COUNT(ID) AS SoLuongSuKien
+                FROM
+                    SuKienThamGia
+                WHERE
+                    YEAR(ThoiGian) = 2023
+                GROUP BY
+                    MONTH(ThoiGian)
+                ORDER BY
+                    Thang;
+                    ";
+
+                DataTable dt = new DataTable();
+                dt = DataProvider.GetTable(sql);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lấy dữ liệu: " + ex.Message);
+                return null;
+            }
+        }
+        public DataTable GetTopViecLam()
+        {
+            try
+            {
+                string sql = @"
+	            SELECT TOP 10
+                    csv.MaSV,
+                    csv.HoTen,
+	                csv.Email,
+	                csv.SoDienThoai,
+	                csv.TenCongTy,
+	                csv.NoiLamViec,
+	                csv.ThoiGianCapNhat
+   
+                FROM
+                    CuuSinhVien csv
+               
+                ";
+
+                DataTable dt = new DataTable();
+                dt = DataProvider.GetTable(sql);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lấy dữ liệu nè: " + ex.Message);
+                return null;
+            }
+        }
+        public DataTable GetTopThamGiaSuKien()
+        {
+            try
+            {
+                string sql = @"
+	            SELECT TOP 10
+                    csv.MaSV,
+                    csv.HoTen,
+                    csv.Email,
+                    csv.SoDienThoai,
+                    COUNT(sktg.ID) AS SoLuongSuKienDaThamGia
+                FROM
+                    CuuSinhVien csv
+                JOIN
+                    SuKienThamGia sktg ON csv.MaSV = sktg.MaSV
+                GROUP BY
+                    csv.MaSV, csv.HoTen, csv.Email, csv.SoDienThoai
+                ORDER BY
+                    SoLuongSuKienDaThamGia DESC;
+               
+                ";
+
+                DataTable dt = new DataTable();
+                dt = DataProvider.GetTable(sql);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lấy dữ liệu nè: " + ex.Message);
+                return null;
+            }
+        }
+        public DataTable GetDSSuKien()
+        {
+            try
+            {
+                string sql = @"
+                SELECT
+                    sktg.TenSuKien,
+                    COUNT(CASE WHEN sktg.TrangThaiThamGia = 1 THEN 1 ELSE NULL END) AS SoLuongSinhVienThamGia,
+                    COUNT(CASE WHEN sktg.TrangThaiThamGia = 0 THEN 1 ELSE NULL END) AS SoLuongSinhVienKhongThamGia
+                FROM
+                    SuKienThamGia sktg
+                GROUP BY
+                    sktg.TenSuKien;
+               
+                ";
+
+                DataTable dt = new DataTable();
+                dt = DataProvider.GetTable(sql);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lấy dữ liệu nè: " + ex.Message);
+                return null;
+            }
+        }
+
+
+
+
+
+        /////////////
     }
 }
